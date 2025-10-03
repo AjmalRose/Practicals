@@ -13,6 +13,7 @@ class StudentListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Student List"),
+        backgroundColor: Colors.teal,
         leading: IconButton(
           onPressed: () {
             Navigator.pushReplacement(

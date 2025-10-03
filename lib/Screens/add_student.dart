@@ -20,11 +20,7 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
   Widget build(BuildContext context) {
     final prov = context.watch<StudentProvider>();
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Add Student"),
-        shadowColor: Colors.amber,
-        backgroundColor: Colors.teal,
-      ),
+      appBar: AppBar(title: Text("Add Student"), backgroundColor: Colors.teal),
 
       body: Center(
         child: prov.islog
