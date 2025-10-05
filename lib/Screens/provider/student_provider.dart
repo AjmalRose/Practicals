@@ -25,5 +25,3 @@ class StudentProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
-
-class StudentList extends ChangeNotifier {}

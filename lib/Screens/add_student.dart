@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_application1/Screens/provider/student_provider.dart';
+import 'package:provider_application1/Screens/provider/theme_provider.dart';
 import 'package:provider_application1/Screens/studentListscreen.dart';
 import 'package:provider_application1/Models/student_model.dart';
 
@@ -19,9 +20,20 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
   @override
   Widget build(BuildContext context) {
     final prov = context.watch<StudentProvider>();
+    final themeProv = context.watch<ThemeProvider>();
     return Scaffold(
-      appBar: AppBar(title: Text("Add Student"), backgroundColor: Colors.teal),
-
+      appBar: AppBar(
+        title: Text("Add Student"),
+        backgroundColor: Colors.teal,
+        actions: [
+          IconButton(
+            icon: Icon(themeProv.isDark ? Icons.dark_mode : Icons.light_mode),
+            onPressed: () {
+              themeProv.toggleTheme();
+            },
+          ),
+        ],
+      ),
       body: Center(
         child: prov.islog
             ? CircularProgressIndicator()
