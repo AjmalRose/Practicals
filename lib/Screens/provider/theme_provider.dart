@@ -8,20 +8,19 @@ class ThemeProvider extends ChangeNotifier {
   ThemeMode get currentTheme => _isDark ? ThemeMode.dark : ThemeMode.light;
 
   ThemeProvider() {
-    _loadTheme(); // load saved theme on app start
+    _loadTheme();
   }
 
   void toggleTheme() async {
     _isDark = !_isDark;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isDark', _isDark); // save the theme state
+    prefs.setBool('isDark', _isDark);
   }
 
   void _loadTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    _isDark =
-        prefs.getBool('isDark') ?? false; // get saved theme or default light
+    _isDark = prefs.getBool('isDark') ?? false;
     notifyListeners();
   }
 }
